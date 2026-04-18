@@ -29,8 +29,9 @@ if (envFile) {
 
 const PORT = 3001
 
-// Importar el handler DESPUÉS de cargar las env vars
+// Importar los handlers DESPUÉS de cargar las env vars
 const { default: handler } = await import('./api/quote.js')
+const { default: notifyHandler } = await import('./api/notify.js')
 
 const server = createServer(async (req, res) => {
   // CORS para Vite (localhost:5173)
@@ -58,16 +59,33 @@ const server = createServer(async (req, res) => {
     return
   }
 
+  if (req.url === '/api/notify') {
+    const chunks = []
+    for await (const chunk of req) chunks.push(chunk)
+    try {
+      req.body = JSON.parse(Buffer.concat(chunks).toString() || '{}')
+    } catch {
+      req.body = {}
+    }
+
+    await notifyHandler(req, res)
+    return
+  }
+
   res.writeHead(404, { 'Content-Type': 'application/json' })
   res.end(JSON.stringify({ error: 'Not found' }))
 })
 
 server.listen(PORT, () => {
   const keyStatus = process.env.ANTHROPIC_API_KEY
-    ? `✓ ANTHROPIC_API_KEY cargada (${process.env.ANTHROPIC_API_KEY.slice(0, 14)}...)`
-    : '✗ ANTHROPIC_API_KEY no encontrada — crea .env.local'
+    ? `✓ ANTHROPIC_API_KEY cargada`
+    : '✗ ANTHROPIC_API_KEY no encontrada'
+  const resendStatus = process.env.GMAIL_APP_PASSWORD
+    ? `✓ GMAIL_APP_PASSWORD cargada`
+    : '✗ GMAIL_APP_PASSWORD no encontrada — emails no se enviarán'
 
   console.log(`\nAPI local corriendo en http://localhost:${PORT}`)
   console.log(keyStatus)
+  console.log(resendStatus)
   console.log('\nEn otra terminal: npm run dev\n')
 })

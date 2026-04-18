@@ -56,6 +56,7 @@ export default function QuoteChatSection() {
 
   const messagesContainerRef = useRef(null)
   const textareaRef = useRef(null)
+  const notificationSentRef = useRef(false)
 
   const [headRef, headVisible] = useReveal()
   const [panelRef, panelVisible] = useReveal()
@@ -90,7 +91,25 @@ export default function QuoteChatSection() {
     el.scrollTop = el.scrollHeight
   }, [messages, isStreaming])
 
+  // Enviar notificación cuando Dig entrega el rango (una sola vez por conversación)
+  useEffect(() => {
+    if (isStreaming) return
+    if (notificationSentRef.current) return
+
+    const lastAssistant = [...messages].reverse().find((m) => m.role === 'assistant' && m.content)?.content || ''
+    if (!QUOTE_RANGE_RE.test(lastAssistant)) return
+
+    notificationSentRef.current = true
+
+    fetch('/api/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: messages.filter((m) => m.content) }),
+    }).catch(() => {}) // fire-and-forget, no bloqueamos la UX
+  }, [isStreaming, messages])
+
   const resetConversation = () => {
+    notificationSentRef.current = false
     setMessages([INITIAL_MESSAGE])
     setInput('')
     sessionStorage.removeItem(SESSION_KEY)
