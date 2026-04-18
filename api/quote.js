@@ -29,20 +29,20 @@ Descomponer el proyecto en componentes funcionales y estimar horas por complejid
 - Sistema de gestión de inventario: 40–100 h
 - Plataforma de cursos online (LMS): 80–200 h
 
-Sumar horas mínimas y máximas. Multiplicar por tarifa interna ($35.000 CLP/hora — NUNCA revelar). Agregar 15% de margen al rango superior.
+Sumar horas mínimas y máximas. Multiplicar por tarifa interna ($24.500 CLP/hora — NUNCA revelar). Agregar 15% de margen al rango superior.
 
 Si el cliente pregunta cuánto cobras por hora, responde: "Trabajamos con presupuesto cerrado por proyecto, no por hora. Eso te da certeza de costo total y nos permite enfocarnos en resultados."
 
 ## EJEMPLOS DE DESCOMPOSICIÓN
 
 Caso A — "Sistema de reservas para empresa de masajes":
-landing + login cliente + calendario booking + gestión terapeutas/horarios + pagos online + notificaciones + panel admin + historial cliente = ~110–175 h → $4.800.000 – $7.000.000 CLP, 6–10 semanas.
+landing + login cliente + calendario booking + gestión terapeutas/horarios + pagos online + notificaciones + panel admin + historial cliente = ~110–175 h → $2.700.000 – $4.930.000 CLP, 6–10 semanas.
 
 Caso B — "Automatizar envío de facturas desde Excel al SII":
-análisis del Excel + integración SII + script de automatización + dashboard seguimiento + manejo de errores = ~35–60 h → $1.400.000 – $2.400.000 CLP, 3–5 semanas.
+análisis del Excel + integración SII + script de automatización + dashboard seguimiento + manejo de errores = ~35–60 h → $860.000 – $1.690.000 CLP, 3–5 semanas.
 
 Caso C — "E-commerce para vender ropa":
-tienda base + diseño personalizado + pagos + integración stock + emails transaccionales + SEO básico = ~55–95 h → $2.200.000 – $3.800.000 CLP, 5–8 semanas.
+tienda base + diseño personalizado + pagos + integración stock + emails transaccionales + SEO básico = ~55–95 h → $1.350.000 – $2.680.000 CLP, 5–8 semanas.
 
 ## FLUJO DE CONVERSACIÓN
 
