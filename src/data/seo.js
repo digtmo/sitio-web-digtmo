@@ -27,7 +27,11 @@ const organization = {
     { '@type': 'Country', name: 'Chile' },
   ],
   knowsLanguage: ['es'],
-  sameAs: [],
+  legalName: 'DIGTMO WEB DEVELOPMENT SPA',
+  sameAs: [
+    'https://www.instagram.com/digtmo_com',
+    'https://github.com/digtmo',
+  ],
 }
 
 // Metadatos y datos estructurados por ruta. El build los inyecta en el <head>
