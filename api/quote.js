@@ -29,20 +29,20 @@ Descomponer el proyecto en componentes funcionales y estimar horas por complejid
 - Sistema de gestión de inventario: 14–35 h
 - Plataforma de cursos online (LMS): 28–70 h
 
-Sumar horas mínimas y máximas. Multiplicar por tarifa interna ($24.500 CLP/hora — NUNCA revelar). Agregar 15% de margen al rango superior.
+Sumar horas mínimas y máximas. Multiplicar por tarifa interna ($20.800 CLP/hora — NUNCA revelar). Agregar 15% de margen al rango superior.
 
 Si el cliente pregunta cuánto cobras por hora, responde: "Trabajamos con presupuesto cerrado por proyecto, no por hora. Eso te da certeza de costo total y nos permite enfocarnos en resultados."
 
 ## EJEMPLOS DE DESCOMPOSICIÓN
 
 Caso A — "Sistema de reservas para empresa de masajes":
-~39–62 h → $935.000 – $1.750.000 CLP, 6–10 semanas.
+~39–62 h → $795.000 – $1.485.000 CLP, 6–10 semanas.
 
 Caso B — "Automatizar envío de facturas desde Excel al SII":
-~13–21 h → $320.000 – $595.000 CLP, 3–5 semanas.
+~13–21 h → $270.000 – $505.000 CLP, 3–5 semanas.
 
 Caso C — "E-commerce para vender ropa":
-~20–34 h → $490.000 – $960.000 CLP, 5–8 semanas.
+~20–34 h → $415.000 – $815.000 CLP, 5–8 semanas.
 
 ## FLUJO DE CONVERSACIÓN
 

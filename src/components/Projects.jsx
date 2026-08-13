@@ -14,8 +14,31 @@ function ProjectCard({ project, index }) {
         <span className={`${styles.metaDot} ${styles[`dot-${project.accent}`]}`} />
         <span className={styles.metaTag}>{project.meta}</span>
       </div>
-      <h3 className={styles.title}>{project.name}</h3>
+      <h3 className={styles.title}>
+        {project.url ? (
+          <a href={project.url} target="_blank" rel="noopener noreferrer" className={styles.titleLink}>
+            {project.name}
+          </a>
+        ) : (
+          project.name
+        )}
+      </h3>
       <p className={styles.description}>{project.description}</p>
+      {project.links && (
+        <div className={styles.links}>
+          {project.links.map(link => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
       <div className={styles.stack}>
         {project.stack.map(tech => (
           <span key={tech} className="chip">{tech}</span>
@@ -36,7 +59,11 @@ export default function Projects() {
           className={`section-head reveal ${headVisible ? 'visible' : ''}`}
         >
           <p className="section-label">Proyectos recientes</p>
-          <h2>Cinco casos. Cinco <em>soluciones</em> a medida.</h2>
+          <h2>Siete casos. Siete <em>soluciones</em> a medida.</h2>
+          <p className={styles.note}>
+            Una muestra de más de 25 proyectos entregados. El resto se mantiene reservado
+            por acuerdos de confidencialidad con nuestros clientes.
+          </p>
         </div>
 
         <div className={styles.grid}>

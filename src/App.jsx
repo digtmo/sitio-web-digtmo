@@ -2,6 +2,7 @@ import CursorGlow from './components/CursorGlow.jsx'
 import QuoteChatSection from './components/QuoteChatSection.jsx'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
+import Metrics from './components/Metrics.jsx'
 import Projects from './components/Projects.jsx'
 import Services from './components/Services.jsx'
 import Process from './components/Process.jsx'
@@ -16,6 +17,7 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <Metrics />
         <QuoteChatSection />
         <Projects />
         <Services />
