@@ -1,31 +1,20 @@
-import CursorGlow from './components/CursorGlow.jsx'
-import QuoteChatSection from './components/QuoteChatSection.jsx'
-import Nav from './components/Nav.jsx'
-import Hero from './components/Hero.jsx'
-import Metrics from './components/Metrics.jsx'
-import Projects from './components/Projects.jsx'
-import Services from './components/Services.jsx'
-import Process from './components/Process.jsx'
-import Testimonial from './components/Testimonial.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import LocalLanding from './pages/LocalLanding.jsx'
 
-export default function App() {
-  return (
-    <>
-      <CursorGlow />
-      <Nav />
-      <main>
-        <Hero />
-        <Metrics />
-        <QuoteChatSection />
-        <Projects />
-        <Services />
-        <Process />
-        <Testimonial />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  )
+// Router mínimo: el sitio tiene pocas rutas y todas se prerenderizan en el build
+// (ver scripts/prerender.mjs), así que no hace falta una librería de routing.
+export const routes = {
+  '/': Home,
+  '/desarrollo-de-software-los-angeles-biobio/': LocalLanding,
+}
+
+function normalize(pathname) {
+  if (pathname === '/' || pathname === '') return '/'
+  return pathname.endsWith('/') ? pathname : `${pathname}/`
+}
+
+export default function App({ path }) {
+  const current = normalize(path ?? window.location.pathname)
+  const Page = routes[current] ?? Home
+  return <Page />
 }

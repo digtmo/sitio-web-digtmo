@@ -21,7 +21,9 @@ export default function Footer() {
         </p>
 
         <p className={styles.made}>
-          Hecho en Los Ángeles, Chile
+          <a href="/desarrollo-de-software-los-angeles-biobio/" className={styles.madeLink}>
+            Desarrollo de software en Los Ángeles, Biobío
+          </a>
         </p>
       </div>
     </footer>

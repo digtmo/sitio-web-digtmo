@@ -15,7 +15,15 @@ export default function Nav() {
 
   const openQuoteChat = (e) => {
     e.preventDefault()
-    document.getElementById('cotiza')?.scrollIntoView({ behavior: 'smooth' })
+    const target = document.getElementById('cotiza')
+
+    // El cotizador vive en el home: desde otra página hay que navegar hasta él.
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      window.location.href = '/#cotiza'
+    }
+
     closeMenu()
   }
 
@@ -34,10 +42,10 @@ export default function Nav() {
         </a>
 
         <div className={`${styles.links} ${open ? styles.linksOpen : ''}`}>
-          <a href="#servicios" className={styles.link} onClick={closeMenu}>Servicios</a>
-          <a href="#proyectos" className={styles.link} onClick={closeMenu}>Proyectos</a>
-          <a href="#proceso" className={styles.link} onClick={closeMenu}>Proceso</a>
-          <a href="#contacto" className={styles.link} onClick={closeMenu}>Contacto</a>
+          <a href="/#servicios" className={styles.link} onClick={closeMenu}>Servicios</a>
+          <a href="/#proyectos" className={styles.link} onClick={closeMenu}>Proyectos</a>
+          <a href="/#proceso" className={styles.link} onClick={closeMenu}>Proceso</a>
+          <a href="/#contacto" className={styles.link} onClick={closeMenu}>Contacto</a>
           <button
             className={`btn btn-primary ${styles.cta}`}
             onClick={openQuoteChat}
