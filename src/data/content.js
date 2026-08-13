@@ -314,7 +314,7 @@ export const testimonial = {
 }
 
 export const contact = {
-  address: 'Los Ángeles, Chile',
+  address: 'Los Ángeles, Región del Biobío',
   phone: '+56 9 3172 9925',
   phoneTel: 'tel:+56931729925',
   email: 'dtorres@digtmo.com',
