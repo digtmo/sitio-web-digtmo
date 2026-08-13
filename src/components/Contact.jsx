@@ -1,5 +1,6 @@
 import { contact } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { track } from '../lib/analytics.js'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -21,7 +22,11 @@ export default function Contact() {
               Agenda una reunión y veamos cómo podemos colaborar para hacer realidad
               tus ideas. Respondemos dentro de 24 horas hábiles.
             </p>
-            <a href={contact.mailto} className="btn btn-primary">
+            <a
+              href={contact.mailto}
+              className="btn btn-primary"
+              onClick={() => track('meeting_click', { location: 'contacto' })}
+            >
               Agenda tu reunión
             </a>
           </div>
@@ -33,13 +38,21 @@ export default function Contact() {
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Teléfono</span>
-              <a href={contact.phoneTel} className={`${styles.infoValue} ${styles.infoLink}`}>
+              <a
+                href={contact.phoneTel}
+                className={`${styles.infoValue} ${styles.infoLink}`}
+                onClick={() => track('contact_phone_click')}
+              >
                 {contact.phone}
               </a>
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Email</span>
-              <a href={contact.mailto} className={`${styles.infoValue} ${styles.infoLink}`}>
+              <a
+                href={contact.mailto}
+                className={`${styles.infoValue} ${styles.infoLink}`}
+                onClick={() => track('contact_email_click')}
+              >
                 {contact.email}
               </a>
             </div>

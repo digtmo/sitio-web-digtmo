@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import styles from './QuoteChat.module.css'
+import { track } from '../lib/analytics.js'
 
 const SESSION_KEY = 'digtmo-chat-v1'
+const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.-]+/
 const QUOTE_RANGE_RE = /\$\d{1,3}(?:\.\d{3})+\s*[–—-]\s*\$\d{1,3}(?:\.\d{3})+\s*CLP/
 
 const INITIAL_MESSAGE = {
@@ -128,6 +130,15 @@ export default function QuoteChat() {
 
     const userMsg = { role: 'user', content: text }
     const history = [...messages, userMsg]
+
+    // El primer mensaje marca que la conversación arrancó; dejar el correo es
+    // la conversión real, porque permite hacer seguimiento del lead.
+    if (messages.filter(m => m.role === 'user').length === 0) {
+      track('quote_chat_started')
+    }
+    if (EMAIL_RE.test(text)) {
+      track('quote_lead', { value: 1 })
+    }
 
     setMessages(history)
     setInput('')

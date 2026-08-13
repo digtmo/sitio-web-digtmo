@@ -1,6 +1,8 @@
 import styles from './Hero.module.css'
+import { track } from '../lib/analytics.js'
 
 function openQuoteChat() {
+  track('cta_quote_click', { location: 'hero' })
   document.getElementById('cotiza')?.scrollIntoView({ behavior: 'smooth' })
 }
 

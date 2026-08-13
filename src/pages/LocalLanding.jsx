@@ -5,6 +5,7 @@ import Testimonial from '../components/Testimonial.jsx'
 import Contact from '../components/Contact.jsx'
 import { localLanding, contact } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { track } from '../lib/analytics.js'
 import styles from './LocalLanding.module.css'
 
 function Section({ section }) {
@@ -82,10 +83,18 @@ export default function LocalLanding() {
               <p className={styles.p}>{localLanding.intro}</p>
 
               <div className={styles.ctas}>
-                <a href={contact.mailto} className="btn btn-primary">
+                <a
+                  href={contact.mailto}
+                  className="btn btn-primary"
+                  onClick={() => track('meeting_click', { location: 'landing-local' })}
+                >
                   Agenda una reunión
                 </a>
-                <a href="/#cotiza" className="btn btn-ghost">
+                <a
+                  href="/#cotiza"
+                  className="btn btn-ghost"
+                  onClick={() => track('cta_quote_click', { location: 'landing-local' })}
+                >
                   Cotiza con IA en minutos
                 </a>
               </div>

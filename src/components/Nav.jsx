@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './Nav.module.css'
+import { track } from '../lib/analytics.js'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -15,6 +16,7 @@ export default function Nav() {
 
   const openQuoteChat = (e) => {
     e.preventDefault()
+    track('cta_quote_click', { location: 'nav' })
     const target = document.getElementById('cotiza')
 
     // El cotizador vive en el home: desde otra página hay que navegar hasta él.

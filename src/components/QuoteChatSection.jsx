@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useReveal } from '../hooks/useReveal.js'
 import styles from './QuoteChatSection.module.css'
+import { track } from '../lib/analytics.js'
 
 const SESSION_KEY = 'digtmo-chat-v1'
 const QUOTE_RANGE_RE = /\$\d{1,3}(?:\.\d{3})+\s*[–—-]\s*\$\d{1,3}(?:\.\d{3})+\s*CLP/
@@ -302,7 +303,11 @@ export default function QuoteChatSection() {
                       className={styles.msgText}
                     />
                     {showCTA && (
-                      <a href={mailtoHref} className={styles.quoteCTA}>
+                      <a
+                        href={mailtoHref}
+                        className={styles.quoteCTA}
+                        onClick={() => track('meeting_click', { location: 'cotizador' })}
+                      >
                         Agenda reunión con David Torres →
                       </a>
                     )}
