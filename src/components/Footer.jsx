@@ -5,7 +5,14 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <a href="/" className={styles.logo}>
-          <img src="/logo.png" alt="Digtmo logo" className={styles.logoImg} />
+          <img
+            src="/logo-96.png"
+            alt="digtmo"
+            width="24"
+            height="24"
+            loading="lazy"
+            className={styles.logoImg}
+          />
           <span className={styles.logoText}>digtmo</span>
         </a>
 

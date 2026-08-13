@@ -23,7 +23,13 @@ export default function Nav() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a href="/" className={styles.logo} onClick={closeMenu}>
-          <img src="/logo.png" alt="Digtmo logo" className={styles.logoImg} />
+          <img
+            src="/logo-96.png"
+            alt="digtmo"
+            width="28"
+            height="28"
+            className={styles.logoImg}
+          />
           <span className={styles.logoText}>digtmo</span>
         </a>
 

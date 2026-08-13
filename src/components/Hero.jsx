@@ -10,7 +10,7 @@ export default function Hero() {
       <div className={`container ${styles.inner}`}>
         <div className={`${styles.eyebrow} ${styles.fadeIn1}`}>
           <span className={styles.dot} />
-          Software · E-commerce · Integraciones
+          Software · E-commerce · Integraciones · Los Ángeles, Chile
         </div>
 
         <h1 className={`${styles.heading} ${styles.fadeIn2}`}>
@@ -22,9 +22,10 @@ export default function Hero() {
 
         <p className={`${styles.lede} ${styles.fadeIn3}`}>
           En digtmo creamos soluciones tecnológicas que impulsan el crecimiento de nuestros
-          clientes a través de software, e-commerce e integración de sistemas. Nos sumergimos
-          en tu negocio para entenderlo a fondo, porque una visión clara permite desarrollar
-          soluciones de excelencia.
+          clientes a través de desarrollo de software a medida, e-commerce e integración de
+          sistemas. Trabajamos desde Los Ángeles, Región del Biobío, con clientes en todo Chile.
+          Nos sumergimos en tu negocio para entenderlo a fondo, porque una visión clara permite
+          desarrollar soluciones de excelencia.
         </p>
 
         <div className={`${styles.ctas} ${styles.fadeIn4}`}>

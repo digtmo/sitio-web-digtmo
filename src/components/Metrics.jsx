@@ -21,7 +21,10 @@ function MetricItem({ metric, index }) {
 
 export default function Metrics() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} aria-labelledby="metricas">
+      <h2 id="metricas" className="sr-only">
+        digtmo en números
+      </h2>
       <div className={`container ${styles.grid}`}>
         {metrics.map((m, i) => (
           <MetricItem key={m.id} metric={m} index={i} />
